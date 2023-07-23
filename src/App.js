@@ -1,13 +1,21 @@
 import React from 'react';
-import AddTodo from './components/AddTodo';
-import TodoList from './components/TodoList';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Todo from './todo';
+import LoginScreen from './login';
+import ProtectedRoute from './routing/ProtectedRoute'
 
 const App = () => {
 	return (
-		<div className="container" >
-			<AddTodo />
-			<TodoList />
-		</div>
+		<Router>
+			<main className='container content'>
+				<Routes>
+					<Route path='/' element={<LoginScreen />} />
+					<Route element={<ProtectedRoute />}>
+						<Route path='/todo' element={<Todo />} />
+					</Route>
+				</Routes>
+			</main>
+		</Router>
 	);
 };
 
