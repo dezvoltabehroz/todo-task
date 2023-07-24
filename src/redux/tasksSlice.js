@@ -13,10 +13,16 @@ export const tasksSlice = createSlice({
         },
         deleteTask: (state, action) => {
             return state.filter((item) => item.id !== action.payload.id);
+        },
+        updateTask: (state, action) => {
+            const { taskName, taskId } = action.payload
+            var foundIndex = state.findIndex(x => x.id == taskId);
+            state[foundIndex].name = taskName;
+            return state
         }
     }
 });
 
-export const { addTask, deleteTask } = tasksSlice.actions;
+export const { addTask, deleteTask, updateTask } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

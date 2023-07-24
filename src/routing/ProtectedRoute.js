@@ -5,8 +5,6 @@ import { Button, Result } from 'antd';
 const ProtectedRoute = () => {
   const auth = useSelector((state) => { return state.auth; });
 
-  console.log("userInfo ===> ", auth)
-
   if (!auth.userToken) {
     return (
       <Result
