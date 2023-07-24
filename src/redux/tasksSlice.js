@@ -16,7 +16,7 @@ export const tasksSlice = createSlice({
         },
         updateTask: (state, action) => {
             const { taskName, taskId } = action.payload
-            var foundIndex = state.findIndex(x => x.id == taskId);
+            var foundIndex = state.findIndex(x => x.id === taskId);
             state[foundIndex].name = taskName;
             return state
         }
